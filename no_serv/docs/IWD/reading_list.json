@@ -1,0 +1,51 @@
+{
+	"name" 				: "IWD Reading List",
+	"description"	: "This collection includes sites, blogs, and media sources that can help expand knowladge and organization of this project",
+	"data" 				: [
+		{
+			"title" : "Testing Backbone applications with Jasmine and Sinon",
+			"url" 	: "http://tinnedfruit.com/2011/03/03/testing-backbone-apps-with-jasmine-sinon.html",
+			"tags" 	: [ "testing", "backbone", "jasmine", "sinon" ],
+			"added" : {
+				"created" : "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		},
+		{
+			"title"		: "Backbone.js Tips : Lessons from the trenches",
+			"url"			: "http://devblog.supportbee.com/2011/07/29/backbone-js-tips-lessons-from-the-trenches/",
+			"tags"		: [ "backbone" ],
+			"date"		: {
+				"created"	: "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		},
+		{
+			"title"		: "Massage your Backbone Views. Templating for Backbone inspired by Sproutcore use of Handlebars",
+			"url"			: "https://github.com/juggy/backrub",
+			"tags"		: [ "Backbone", "Handlebars" ],
+			"date"		: {
+				"created"	: "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		},
+		{
+			"title"		: "Backbone Widgets",
+			"url"			: "https://github.com/martindrapeau/Backbone-Widgets",
+			"tags"		: [ "JavaScript", "Backbone", "jQuery" ],
+			"date"		: {
+				"created"	: "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		},
+		{
+			"title"		: "",
+			"url"			: "http://",
+			"tags"		: [],
+			"date"		: {
+				"created"	: "",
+				"modified": ""
+			}
+		}
+	]
+}

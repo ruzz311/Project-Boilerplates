@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='description' content='This is a safe place.  You will not be judged here.  You can check out project documentation, chat, etc' />
+		<meta name='author' content='VML' />
+		<title>Documentation | &lt;Project&gt; | &lt;Client&gt;</title>
+		<link rel='stylesheet' href='.assets/css/base.css' />
+	</head>
+
+	<body>
+		
+		<div id='main' role='main'>
+
+			<nav>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#tech">IWD Technology</a></li>
+				</ul>
+			</nav>
+
+			<header>
+			</header>
+
+			<div id='content'></div>
+
+			<footer>footer</footer>
+
+		</div>
+
+		<!-- SCRIPT INCLUDES -->
+		<div id="javascripts">
+			<script src='.assets/config.js'></script>
+			<script src='.assets/js/.dependencies/jquery.js'></script>
+			<script src='.assets/js/.dependencies/underscore.js'></script>
+			<script src='.assets/js/.dependencies/backbone.js'></script>
+			<script src='.assets/js/Classes/Reference.js'></script>
+			<script src='.assets/js/Classes/Article.js'></script>
+			<script src='.assets/js/router.js'></script>
+			<script src='.assets/js/app.js'></script>
+		</div>
+		
+
+		<!-- TEMPLATES -->
+		<script type='text/template' id='tmpl_app_header'>
+			<h1><%= client %></h1>
+			<h2><%= project %></h2>
+		</script>
+
+		<script type='text/template' id='tmpl_reference_listFull'>
+			
+			<h3><%= title %></h3>
+			<p><%= description %></p>
+
+			<ul class="listFull">
+				<% _.each( payload, function( item ) { %>
+					<li>
+						<h4><%= item.title %></h4>
+
+						<% if( item.url.length > 0 ) { %>
+							<div class="links">
+							<% _.each( item.url, function( item_url ) { %>
+								<a href="#"><%= item_url %></a>
+							<% }); %>
+							</div>
+						<% } %>
+
+						<% if( item.tags.length > 0 ) { %>
+							<div class="tags">
+							<% _.each( item.tags, function( item_tag ) { %>
+								<a href="#"><%= item_tag %></a>
+							<% }); %>
+							</div>
+						<% } %>
+
+					</li>
+				<% }); %>
+			</ul>
+		</script>
+
+
+		<!-- TEMPLATES -->
+		<script type='text/template' id='tmpl_list'>
+			<h3><%= title %></h3>
+			<ul class="references_list">
+				<% _.each( payload, function( item ) { %>
+					<li><a href="#"><%= item.title %></a></li>
+				<% }); %>
+			</ul>
+		</script>
+
+	</body>
+</html>

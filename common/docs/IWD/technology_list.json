@@ -1,0 +1,90 @@
+[{
+	"id": 0,
+	"title" 			: "IWD Technology Documentation",
+	"description"	: "This collection can help IWD's find documentation for the technologies implemented in this project",
+	"department"	: "IWD",
+	"payload" 		: [
+		{
+			"id": 0,
+			"title"		: "Backbone.js",
+			"url"			: [
+				"http://documentcloud.github.com/backbone/",
+				"https://github.com/documentcloud/backbone/wiki/"
+			],
+			"tags"		: [ "Javascript", "Framework", "MVC" ],
+			"date"		: {
+				"created"	: "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		}, {
+			"id": 1,
+			"title"		: "Handlebars",
+			"url"			: [ 
+				"http://www.handlebarsjs.com/" 
+			],
+			"tags"		: [ "HTML", "JavaScript", "Template" ],
+			"date"		: {
+				"created"	: "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		},
+		{
+			"id": 2,
+			"title"		: "Sass. Style with attitude",
+			"url"			: [ 
+				"http://sass-lang.com/" 
+			],
+			"tags"		: [ "CSS", "Stylesheet", "Ruby" ],
+			"date"		: {
+				"created"	: "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		},
+		{
+			"id": 3,
+			"title"		: "Compass - CSS Authoring framework",
+			"url"			: [ 
+				"http://compass-style.org/",
+				"http://compass-style.org/reference/compass/"
+			],
+			"tags"		: [ "CSS", "Stylesheet", "Framework", "Sass" ],
+			"date"		: {
+				"created"	: "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		},
+		{
+			"id": 4,
+			"title"		: "SUSY un-obtrusive grids for designers",
+			"url"			: [ 
+				"http://susy.oddbird.net/",
+				"https://github.com/ericam/compass-susy-plugin"
+			],
+			"tags"		: [ "CSS", "Responsive", "Design", "Grid", "stylesheet", "Sass", "Compass" ],
+			"date"		: {
+				"created"	: "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		},
+		{
+			"id": 5,
+			"title"		: "jQuery",
+			"url"			: ["http://jquery.com/"],
+			"tags"		: [ "JavaScript", "DOM" ],
+			"date"		: {
+				"created"	: "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		},
+		{
+			"id": 6,
+			"title"		: "JSON",
+			"url"			: ["http://www.json.org/"],
+			"tags"		: [ "Javascript", "data", "ajax" ],
+			"date"		: {
+				"created"	: "2011-12-06",
+				"modified": "2011-12-06"
+			}
+		}
+	]
+}]

@@ -1,0 +1,8 @@
+{
+    "name": "project-templates",
+    "description": "Boilerplates for a few different types of projects.",
+    "version": "0.1.0",
+    "author": "Russell Madsen",
+    "dependencies": {},
+    "devDependencies": {}
+}

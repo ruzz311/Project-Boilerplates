@@ -1,0 +1,142 @@
+<!DOCTYPE>
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Static Site Template</title>
+
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<!-- [ DEV ONLY ] -->
+		<!--							 base: /Apps/Library/Project-Boilerplates/ -->
+		<!--			common_assets: /Apps/Library/Project-Boilerplates/common/htdocs/_assets/ -->
+		<base href="http://localhost/Apps/Library/Project-Boilerplates/" target="_self" />
+		<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+	<!-- [/DEV ONLY ] -->
+	<link type="text/css" rel="stylesheet" href="common/htdocs/_assets/css/base.css"/>
+	<script type="text/javascript" src="no_serv/htdocs/_assets/js/config.js"></script>
+	<script type="text/javascript" src="common/htdocs/_assets/lib/modernizr.js"></script>
+</head>
+
+<body id="{{ section }}" class="{{action}} loading">
+<div id="viewport">
+		
+
+	<!-- [ CONTROLS ] -->
+		<div id="controls">
+
+			<menu id="{{section}}" class="{{ section_view }}">
+				<h3>{{ section_title }}</h3>
+				
+				<section class=".page1 .page2">
+					<h4>{{ group_title }}</h4>
+					<button data-route="{{ link }}">{{ label }}</button>
+					<button data-route="{{ link }}">{{ label }}</button>
+				</section>
+				
+				<section class=".page2">
+					<h4>{{ group_title }}</h4>
+					<button data-route="{{ link }}">{{ label }}</button>
+					<button data-route="{{ link }}">{{ label }}</button>
+					<button data-route="{{ link }}">{{ label }}</button>
+				</section>
+			</menu>
+
+			<section class="tmpl">
+				<script type="" id=""></script>
+				<script type="" id=""></script>
+			</section>
+
+		</div>
+	<!-- [/CONTROLS ] -->
+
+
+	<!-- [ MAIN ] -->
+		<div id="main" role="main">
+			<div id="views">
+
+				
+				<section id="home">
+
+					<article class="col1">
+						<h2>Welcome to the boiler plate</h2>
+						<p>This is your home.</p>
+					</article>
+
+					<aside class="col2">
+						<h4>Less Important</h4>
+						<p>things here</p>
+					</aside>
+
+				</section>
+
+
+				<section id="object1" class="cols-2">
+					<h2>{{ title }}</h2>
+
+					<article class="list col1 hide">loading...</div>
+					<article class="detail col1 hide">loading...</div>
+
+					<aside class="col2">
+						<h4>Less Important</h4>
+						<p>things here</p>
+					</aside>
+
+				</section>
+
+
+			</div>
+		</div>
+	<!-- [/MAIN ] -->
+
+
+</div>
+
+
+<!-- [ APP SUPPORT ] -->
+
+	<!-- [ TEMPLATES ] -->
+		<script id="list-template" type="text/template">
+			<h2>Item template</h2>
+		</script>
+
+		<script id="detail-template" type="text/template">
+			<span>{{ id }}</span>
+		</script>
+
+		<script id="ui-template-option" type="text/template">
+			<option id="{{ cid }}" value="{{ val }}">{{ label }}</option>
+		</script>
+	<!-- [/TEMPLATES ] -->
+
+	<!-- [ SCRIPTS ] -->
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script type="text/javascript"> window.jQuery || document.write('<script src="common/htdocs/_assets/lib/jquery.js"><\/script>') </script>
+		<script type="text/javascript" src="common/htdocs/_assets/lib/underscore.js"></script>
+		<script type="text/javascript" src="common/htdocs/_assets/lib/backbone.js"></script>
+		<script type="text/javascript" src="no_serv/htdocs/_assets/js/Object/Obj1.js" defer="defer"></script>
+		<script type="text/javascript" src="no_serv/htdocs/_assets/js/router.js" defer="defer"></script>
+		<script type="text/javascript" src="no_serv/htdocs/_assets/js/app.js" defer="defer"></script>
+	<!-- [/SCRIPTS ] -->
+
+	<!-- [ PRODUCION ] -->
+		<!--
+			<script type="text/javascript">
+				//<![CDATA[
+				window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+				Modernizr.load({load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'});
+				//]]>
+			</script>
+		-->
+
+		<!--[if lt IE 7]><h2>What is it, 2001?<br/>Get a new browser</h2> <![endif]-->
+	<!-- [/PRODUCTION ] -->
+
+<!-- [/APP SUPPORT ] -->
+
+
+</body>
+</html>
