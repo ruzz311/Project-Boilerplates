@@ -3,13 +3,13 @@ MODEL.Obj = Backbone.Model.extend({});
 CLASS.Objs = Backbone.Collection.extend({
 	
 	name: 'references',
-	url	: './IWD/iwd_technology_docs.json',
+	url	: '_assets/data/obj1.json',
 
 	initialize : function( ) {
 		var self = this;
 
 		this.views = {
-			'list' : new VIEW.Obj.List({ collection: self }),
+			"list" : new VIEW.Obj.List({ collection: self }),
 			"detail"	: function( item_id ) { 
 				//var item = self.get( item_id );
 				//return new VIEW.Obj.Item({ collection: self, model: item }); 

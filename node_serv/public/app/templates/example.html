@@ -1,8 +1,3 @@
-<nav>
-  <a href="#">Home</a>
-  <a href="#resource">Resource</a>
-</nav>
-
 <section id="toc">
   <h1>Contents</h1>
 
@@ -128,11 +123,11 @@
       <p>At the root level of the project simply change the <code>favicon.ico</code> file to point to your own branded icon.</p>
 
     <li><h4 id="app-code">Removing default application code</h4>
-      <p>This tutorial is rendered in the <code>app/modules/example.js</code> file and written in <code>app/modules/templates/example.html</code>
-      both of these files are safe to remove.</p>
+      <p>This tutorial is rendered in the <code>app/modules/example.js</code> file and written in <code>app/templates/example.html</code>.
+      Both of these files are safe to remove.</p>
 
     <li><h4 id="default-routes">Removing the default routes</h4>
-      <p>Routes are defined in the <code>app/index.js</code> file.  Familiarize yourself with it's contents.  You'll notice the default router has two existing rotues and callback defined, reset it to:
+      <p>Routes are defined in the <code>app/index.js</code> file.  Familiarize yourself with it's contents.  You'll notice the default router has two existing routes and callback defined, reset it to:
 
       <pre><code>
     // Defining the application router, you can attach sub routers here.
@@ -175,7 +170,7 @@
 
   <h3 id="namespace">Setting your namespace</h3>
   <p>This is a very important starting step to creating your application.  This brands the application to your name and makes
-  it something identifiable to new developers.  To set your own namespace, simply open the <code>app/index.js</code> file and
+  it something identifiable to new developers.  To set your own namespace, simply open the <code>app/namespace.js</code> file and
   make the following modifications:
 
     First change the name of the namespace, this is defined on <code>Line 4</code>
@@ -187,7 +182,7 @@
     </code></pre>
     </p>
 
-    <p>Once you've set the name, you'll want to change the reference on <code>Line 50</code> to:
+    <p>Once you've set the name, you'll want to change the reference in <code>index.js</code> on <code>Line 7</code> to:
     
     <pre><code>
   // Shorthand the application namespace

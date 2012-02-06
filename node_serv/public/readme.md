@@ -49,7 +49,7 @@ This will download the latest boilerplate into your application directory
 and clean out all the unnecessary git remnants.
 
 If you would like to use the *ahem* awesome bundled build tool, you will
-need to install Node.js for your platform.  Don't worry its super easy now!
+need to install Node.js for your platform.  Don't worry! It's super easy now!
 If not, you can simply delete the build folder.
 
 Navigate to: http://nodejs.org/ and click Download.  Once you've downloaded
@@ -63,7 +63,7 @@ Once you have the boilerplate downloaded and extracted, run the following:
 node build/server
 ```
 
-And launch your web browser to <code>http://localhost:8000/</code>, this will
+And launch your web browser to `http://localhost:8000/`, this will
 load up the tutorial.
 
 ## HTML5 Boilerplate ##
@@ -84,7 +84,7 @@ the namespace as well as initializing the main application Router.  **Make
 sure you change the namespace name here.**
 
 The static assets are placed inside the `assets` directory.  The H5BP files
-are already included here.  Place all new JavaScript libaries inside the
+are already included here.  Place all new JavaScript libraries inside the
 `assets/js/libs` directory.  If you are dealing with many jQuery plugins,
 you may want to create a separate `plugins` folder inside `assets/js`.
 
@@ -134,7 +134,7 @@ MyModule.Router = Backbone.Router.extend({ /* ... */ });
 
 ## HTML5 History and Hash Based Navigation ##
 
-Out the box Backbone Boilerplate enables `pushState`.  It also supplys a script
+Out the box Backbone Boilerplate enables `pushState`.  It also supplies a script
 inside `app/index.js` which attaches a click handler that monitors all links and
 will automatically route all *relative* urls through your Backbone application.
 
@@ -174,8 +174,9 @@ node build/server release
 
 ## Build Process ##
 
-The Backbone Boilerplate build process is a state-of-the-art task driven
-Node.js application that utilizes @cowboy's grunt project.
+The Backbone Boilerplate build process is a state-of-the-art, task-driven
+Node.js application that utilizes [@cowboy's](http://github.com/cowboy/)
+[grunt](https://github.com/cowboy/grunt) project.
 
 To run the defaults, execute the following command from the project root,
 and *not from inside the build folder*.

@@ -2,9 +2,9 @@
  * Module dependencies.
  */
 
-var nano    = require( 'nano' )( 'http://127.0.0.1:5984' ),
-    request = require( 'request' ),
-    db_name = "my_couch",
+var request = require( 'request' ),
+    nano    = require( 'nano' )( 'http://127.0.0.1:5984' ),
+    db_name = "users",
     db      = nano.use( db_name );
 
 
@@ -50,12 +50,12 @@ var User = {
     },
 
     index: function( req, res ){
-      console.log( 'USER::INDEX');
-      data = db.view( "hello", "world", {"include_docs":"true"}, function ( _, data ) {
-        console.log( 'USER::INDEX::DB.View complete', { self:this, _:_, data:data });
-        res.render( 'users', { title: "Title", data: data.rows });
+      
+      db.view( 'users', 'all', function ( error, data, headers ) {
+        if(error) { return res.send(error.message, error['status-code']); }
+        res.send( data.rows, 200 );
       });
-      res.send( users );
+
     },
 
     show: function( req, res ){

@@ -23,14 +23,13 @@
   Example.Views.Tutorial = Backbone.View.extend({
     template: "app/templates/example.html",
 
-    render: function(done) {
+    render: function( done ) {
       var view = this;
 
       // Fetch the template, render it to the View element and call done.
       namespace.fetchTemplate(this.template, function(tmpl) {
         view.el.innerHTML = tmpl();
-
-        done(view.el);
+        done( view.el );
       });
     }
   });

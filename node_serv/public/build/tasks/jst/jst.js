@@ -1,28 +1,29 @@
-// ============================================================================
-// TASKS
-// ============================================================================
+/*
+ * Grunt Task File
+ * ---------------
+ *
+ * Task: JST 
+ * Description: Compile underscore templates to JST file
+ * Dependencies: None
+ *
+ */
 
 task.registerBasicTask("jst", "Compile underscore templates to JST file", function(data, name) {
   // If namespace is specified use that, otherwise fallback
-  var namespace = config("jst.namespace") || "JST";
+  var namespace = config("meta.jst.namespace") || "JST";
   // If template settings are available use those
-  var templateSettings = config("jst.templateSettings") || null;
+  var templateSettings = config("meta.jst.templateSettings") || null;
 
   // Create JST file.
-  var errorcount = fail.errorcount;
   var files = file.expand(data);
-  file.write(name, task.helper('jst', files, namespace, templateSettings));
+  file.write(name, task.helper("jst", files, namespace, templateSettings));
 
-  // Fail task if there were errors.
-  if (fail.errorcount > errorcount) { return false; }
+  // Fail task if errors were logged.
+  if (task.hadErrors()) { return false; }
 
   // Otherwise, print a success message.
   log.writeln("File \"" + name + "\" created.");
 });
-
-// ============================================================================
-// HELPERS
-// ============================================================================
 
 task.registerHelper("jst", function(files, namespace, templateSettings) {
   // Pulled from underscore 1.2.4
@@ -66,6 +67,7 @@ task.registerHelper("jst", function(files, namespace, templateSettings) {
 
         "return ",
         underscoreTemplating(file.read(filepath)).replace("anonymous", ""),
+        "(data, _)",
 
       "};"].join("");
 
@@ -74,4 +76,3 @@ task.registerHelper("jst", function(files, namespace, templateSettings) {
 
   return contents;
 });
-
