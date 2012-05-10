@@ -1,4 +1,15 @@
+//===== Safe console.log (via Paul Irish)  [ example: log('message', this, {param:val}) ]
+  window.log = function(){
+    log.history = log.history || [];
+    log.history.push(arguments);
+    if( this.console && (window.location.hostname == 'localhost' || window.location.hostname == '127.0.0.1') ){
+      console.log( Array.prototype.slice.call(arguments) );
+    }
+  };
+
+//===== interpolate like moustache
 _.templateSettings = { interpolate : /\{\{(.+?)\}\}/g};
+
 
 // Change *namespace* to your namespace!
 // This contains the module definition factory function, application state,

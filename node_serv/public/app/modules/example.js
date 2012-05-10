@@ -21,7 +21,7 @@
 
   // This will fetch the tutorial template and render it.
   Example.Views.Tutorial = Backbone.View.extend({
-    template: "app/templates/example.html",
+    template: "/app/templates/example.html",
 
     render: function( done ) {
       var view = this;

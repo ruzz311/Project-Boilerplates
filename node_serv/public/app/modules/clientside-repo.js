@@ -1,15 +1,11 @@
 // Use an IIFE...
 // (http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
-// to assign your module reference to a local variable, in this case User.
+// to assign your module reference to a local variable, in this case Repo.
 
-(function(User) {
+(function(Repo) {
 
-  //TODO: build template preloader
-  //User.preloadTemplates = function(){};
-
-
-  User.Model = Backbone.Model.extend({ 
-    url:'/users',
+  Repo.Model = Backbone.Model.extend({ 
+    url:'/repo',
     idAttribute: "_id",
     parse: function( res ) {
       //used because of couchDB
@@ -17,34 +13,40 @@
     }
   });
 
-  User.Collection = Backbone.Collection.extend({ url:'/users', model: User.Model });
-  User.db = new User.Collection();
-  User.db.fetch();
+  Repo.Collection = Backbone.Collection.extend({ 
+    url:'/repo', 
+    model: Repo.Model 
+  });
+  
+  Repo.db = new Repo.Collection();
+  Repo.db.fetch({ 
+    success:function(){ log('repo loaded');} 
+  });
 
-  User.Router = new ( Backbone.Router.extend({ 
+  Repo.Router = new ( Backbone.Router.extend({ 
 
     routes : {
-      "users"           : "index",
-      "users/"          : "index",
-      "users/:id"       : "detail",
-      "users/edit/:id"  : "edit",
-      "users/create"    : "create"
+      "repo"           : "index",
+      "repo/"          : "index",
+      "repo/:id"       : "detail",
+      "repo/edit/:id"  : "edit",
+      "repo/create"    : "create"
     },
 
-    initialize : function( options ){ log( 'Init User.Router' ); },
+    initialize : function( options ){ log( 'Init Repo.Router' ); },
 
     index : function( id ) {
       var route = this,
-          section = new User.Views.Section({ el: $('#content') }),
+          section = new Repo.Views.Section({ el: $('#content') }),
           listview;
 
       // Attach the user section to the DOM
       section.render( function( el ) {
 
         //create the user list
-        listview = new User.Views.List({
-          collection: User.db,
-          el: $( '#user_content .list' )
+        listview = new Repo.Views.List({
+          collection: Repo.db,
+          el: $( '#repo_content .list' )
         });
 
         // render list to page
@@ -58,36 +60,37 @@
 
     detail : function( id ){
       var route = this,
-          section = new User.Views.Section({ el: $( '#content' ) }),
+          section = new Repo.Views.Section({ el: $( '#content' ) }),
           listview;
 
       // Attach the section to the DOM
       section.render( function( el ) {
 
-        user = User.db.get( id );
+        repo = Repo.db.get( id );
 
-        var article = new User.Views.Detail({
-          model: user,
+        var article = new Repo.Views.Detail({
+          model: repo,
           el: $( '.detail', section.$el )
         });
         article.render( function( u ){ });
 
-        log( 'User.Router.detail -> user.fetch success', { user:user, view:article })
+        log( 'Repo.Router.detail -> fetch success', { repo:repo, view:article })
       });
     },
 
     edit : function( id ){
-      log( 'TODO:Edit User', { user_id:id });
-      user = User.db.get( id );
+      log( 'TODO:Edit Repo', { user_id:id });
+      user = Repo.db.get( id );
 
-      var article = new User.Views.EditItem({
-        model: user,
-        el: $( '#user_content > .edit' )
+      var article = new Repo.Views.EditItem({
+        model: repo,
+        el: $( '#repo_content > .edit' )
       });
 
       article.render( function( el ){
-        $('#user_content').children().addClass('hidden');
-        article.$el.removeClass('hidden');
+        article.$el
+          .removeClass('hidden')
+          .siblings().addClass('hidden');
       });
     }
     
@@ -110,14 +113,14 @@
   };
 
   // This will fetch the tutorial template and render it.
-  User.Views.Section = Backbone.View.extend({
-    template: "/app/templates/users/section.html",
+  Repo.Views.Section = Backbone.View.extend({
+    template: "/app/templates/repo/section.html",
     render: simple_render
   });
 
   // This will fetch the tutorial template and render it.
-  User.Views.List = Backbone.View.extend({
-    template: "/app/templates/users/list.html",
+  Repo.Views.List = Backbone.View.extend({
+    template: "/app/templates/repo/list.html",
     events : { "click button.create" : "createNew" },
 
     initialize: function( options ) { 
@@ -142,7 +145,7 @@
 
     addOne: function( model ) {
       var list = this;
-      item = new User.Views.ListItem({ model: model });
+      item = new Repo.Views.ListItem({ model: model });
       item.render( function( el ){
         list.$el.find( 'ul' ).append( el );
       });
@@ -152,7 +155,7 @@
     createNew: function() {
       log( 'TODO: create action' );
       /* 
-      var editView = new User.Views.EditItem({
+      var editView = new Repo.Views.EditItem({
         model: this.model,
         el: $( '#user.edit' )
       });
@@ -161,8 +164,8 @@
 
   });
 
-  User.Views.ListItem = Backbone.View.extend({
-    template: "/app/templates/users/list_item.html",
+  Repo.Views.ListItem = Backbone.View.extend({
+    template: "/app/templates/repo/list_item.html",
     tagName: "li",
     className: "document-row",
 
@@ -180,7 +183,7 @@
     render: model_render,
 
     open : function(){
-      var article = new User.Views.Detail({
+      var article = new Repo.Views.Detail({
         model: this.model,
         el: $( '#user_content > .detail' )
       });
@@ -189,11 +192,11 @@
         $('#user_content').children().addClass('hidden');
         article.$el.removeClass('hidden');
       });
-      User.Router.navigate("users/"+this.model.id, {trigger: false});
+      Repo.Router.navigate("repo/"+this.model.id, {trigger: false});
     },
 
     openEditDialog : function(){
-      var article = new User.Views.EditItem({
+      var article = new Repo.Views.EditItem({
         model: this.model,
         el: $( '#user_content > .edit' )
       });
@@ -202,11 +205,9 @@
         $('#user_content').children().addClass('hidden');
         article.$el.removeClass('hidden');
       });
-      User.Router.navigate("users/"+this.model.id+"/edit", {trigger: false});
+      Repo.Router.navigate("repo/"+this.model.id+"/edit", {trigger: false});
     },
 
-    destroySuccess : function( model, response ){ alert( 'That shit is gone! '+response ); },
-    destroyError : function( model, response ){ alert( 'fuck - the destroy did not work! '+response ); },
     handleDelete : function(){
       var model = this.model;
       log( "TODO:Destroy actions", { model: this.model })
@@ -216,19 +217,19 @@
   });
 
 
-  User.Views.Detail = Backbone.View.extend({
-    template: "/app/templates/users/detail.html",
+  Repo.Views.Detail = Backbone.View.extend({
+    template: "/app/templates/repo/detail.html",
     className: "detail-item",
     render: model_render
   });
 
 
-  User.Views.EditItem = Backbone.View.extend({
-    template: "/app/templates/users/edit.html",
+  Repo.Views.EditItem = Backbone.View.extend({
+    template: "/app/templates/repo/edit.html",
     className: "edit-item",
     render: model_render
   });
 
 
-})(namespace.module("user"));
+})(namespace.module("repo"));
 

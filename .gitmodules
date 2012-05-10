@@ -1,0 +1,3 @@
+[submodule "backbone-boilerplate"]
+	path = backbone-boilerplate
+	url = https://github.com/tbranyen/boilerplate-handlebars-layoutmanager.git

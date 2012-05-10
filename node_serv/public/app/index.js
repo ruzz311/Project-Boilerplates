@@ -9,17 +9,16 @@ jQuery(function($) {
   // Include the example module
   var Example = namespace.module("example");
   var Users = namespace.module("user");
+  var Repo = namespace.module("repo");
   app.example = Example;
   app.users = Users;
+  app.repo = Repo;
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
     routes: {
       "": "index"
       //":hash": "index"
-    },
-    initialize : function(){
-      this.users = new Users.Router();
     },
 
     index: function(hash) {
@@ -49,6 +48,7 @@ jQuery(function($) {
   // Define your master router on the application namespace and trigger all
   // navigation from this instance.
   app.router = new Router();
+  //app.router.users = new Users.Router();
 
   // Trigger the initial route and enable HTML5 History API support
   Backbone.history.start({ pushState: true });
